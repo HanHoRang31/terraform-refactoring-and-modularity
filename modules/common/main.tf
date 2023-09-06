@@ -550,7 +550,15 @@ data "aws_ami" "bastion" {
   owners      = [var.ami_ownerid]
   filter {
     name   = "name"
-    values = ["${var.ami_env}-ucmp-bastion-ami-*"]
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["amazon"] # Amazon이 소유한 AMI만 검색
   }
 }
 

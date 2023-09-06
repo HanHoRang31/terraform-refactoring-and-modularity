@@ -124,9 +124,18 @@ data "aws_ami" "node_ami_id" {
   provider    = aws.ucmp_owner
   most_recent = true
   owners      = [var.ami_ownerid]
+  
   filter {
     name   = "name"
-    values = ["${var.ami_env}-ucmp-eksnode-*-ami-*"]
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["amazon"] # Amazon이 소유한 AMI만 검색
   }
 }
 
@@ -144,7 +153,7 @@ module "eks" {
   eks_scailing_min     = var.eks_scailing_min
 
   key_pair_name       = aws_key_pair.keypair.key_name
-  eks_node_ami_id     = data.aws_ami.node_ami_id[0].id
+  eks_node_ami_id     = data.aws_ami.node_ami_id[0].id // tuple ? 
   node_instance_types = var.node_instance_types
 }
 
