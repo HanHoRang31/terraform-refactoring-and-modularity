@@ -123,16 +123,11 @@ data "aws_ami" "node_ami_id" {
   count       = var.enable_eks ? 1 : 0
   provider    = aws.ucmp_owner
   most_recent = true
-  owners      = [var.ami_ownerid]
+  owners      = ["amazon"]
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+    values = ["amzn2-ami-hvm*"]
   }
 
 }

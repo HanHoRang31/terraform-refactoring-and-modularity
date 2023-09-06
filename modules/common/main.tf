@@ -547,16 +547,13 @@ data "aws_ami_ids" "ucmp_ami_ids" {
 data "aws_ami" "bastion" {
   provider    = aws.ucmp_owner
   most_recent = true
-  owners      = [var.ami_ownerid]
+  owners      = ["amazon"]
+  
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+    values = ["amzn2-ami-hvm*"]
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
 }
 
 // ami 리스트에 접근 권한 추가
