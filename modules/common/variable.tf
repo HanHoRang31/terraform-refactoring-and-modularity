@@ -59,7 +59,7 @@ variable "ami_env" {
 #############
 variable "enable_eks" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "sg_eks_cluster_egress" {

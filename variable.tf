@@ -70,7 +70,7 @@ variable "bastion_cidr_block" {
 #####################
 variable "enable_eks" {
   type        = bool
-  default     = false
+  default     = true
   description = "EKS 활성/비활성"
 }
 
