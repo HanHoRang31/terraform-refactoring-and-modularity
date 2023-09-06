@@ -1,5 +1,4 @@
 output "eks_cluster_security_group_ids" {
-  depends_on 
   value       = [aws_security_group.eks_cluster[0].id]
   description = "EKS 클러스터 생성에 필요한 보안 그룹 아이디 목록"
 }
