@@ -124,7 +124,7 @@ data "aws_ami" "node_ami_id" {
   provider    = aws.ucmp_owner
   most_recent = true
   owners      = [var.ami_ownerid]
-  
+
   filter {
     name   = "name"
     values = ["amzn2-ami-hvm-*-x86_64-gp2"]
@@ -135,9 +135,8 @@ data "aws_ami" "node_ami_id" {
     values = ["hvm"]
   }
 
-  owners = ["amazon"] # Amazon이 소유한 AMI만 검색
-  }
 }
+
 
 module "eks" {
   source = "./modules/eks"
