@@ -557,9 +557,6 @@ data "aws_ami" "bastion" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
-
-  owners = ["amazon"] # Amazon이 소유한 AMI만 검색
-  }
 }
 
 // ami 리스트에 접근 권한 추가
