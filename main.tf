@@ -1,9 +1,9 @@
 terraform {
   cloud {
-    organization = "LG-uplus"
+    organization = "t101-hanhorang" // organization 
     hostname     = "app.terraform.io"
     workspaces {
-      name = "iac-academy"
+      name = "t101"
     }
   }
   required_providers {

@@ -1,4 +1,5 @@
 output "ECR_REPOSITORY" {
+  count      = var.enable_ecr ? 1 : 0
   value       = aws_ecr_repository.ecr[0].name
   description = "ECR repository"
 }
